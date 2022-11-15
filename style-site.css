@@ -1,0 +1,585 @@
+@import url(/assets/BagerichDemo.otf);
+@import url(/assets/Harmond-SemiBoldCondensed.otf);
+
+:root {
+  --primaire: #fff7da;
+  --secondaire: #feb57b;
+  --text-color: #333234;
+  --body-text-normal: 15px;
+  --espace: 2.5rem;
+  --titre: "Harmond-SemiBoldCondensed", sans-serif, cursive, monospace;
+  --text: "BagerichDemo", sans-serif, cursive, monospace;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: var(--text);
+  background-color: var(--primaire);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+span {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+p {
+  color: var(--text-color);
+  font-size: 0.8em;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.3em;
+  line-height: 1.3em;
+}
+
+header {
+  padding: var(--espace);
+  background: #fff;
+  height: 100vh;
+  background: var(--primaire);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1350px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* ========= NAVBAR =========*/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--espace);
+  width: 100%;
+}
+
+ul a,
+ul span {
+  font-weight: 700;
+  background-image: linear-gradient(0deg, #111, #111);
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  padding-bottom: 10px;
+  background-position: 50% bottom;
+}
+
+ul a:hover,
+ul span:hover,
+.controls span:hover,
+controls span:hover,
+.search:focus {
+  background-size: 100% 2px;
+  background-image: linear-gradient(0deg, var(--secondaire), var(--secondaire));
+}
+
+nav span {
+  cursor: pointer;
+}
+
+.brand {
+  text-transform: capitalize;
+  font-size: 1.2em;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 0.7em;
+}
+
+.search {
+  text-align: center;
+  border: none;
+  outline: none;
+  width: 8em;
+  transition: 0.3s;
+  background: #fff7da;
+}
+
+.search,
+.controls span,
+.active {
+  background-image: linear-gradient(0deg, #111, #111);
+  background-repeat: no-repeat;
+  background-size: 50% 2px;
+  padding-bottom: 10px;
+  background-position: 50% bottom;
+}
+
+.search::placeholder {
+  color: var(--text-color);
+
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.search:focus {
+  background-size: 120% 2px;
+}
+
+.mobile-search {
+  display: none;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ======= HEADER BODY ====== */
+
+.header-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-body > div {
+  margin: 0 var(--espace);
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  position: relative;
+}
+
+.deco-gauche,
+.deco-droite {
+  background: var(--secondaire);
+  position: absolute;
+  z-index: 1;
+}
+
+.deco-gauche {
+  top: 50%;
+  left: -8%;
+  width: 16%;
+  height: 70%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  color: var(--primaire);
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slider1;
+}
+
+.deco-droite {
+  bottom: 0.5%;
+  right: -8%;
+  width: 16%;
+  height: 12em;
+  animation: slider2;
+}
+
+.overlay {
+  position: absolute;
+  background: var(--primaire);
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+  animation: slider3;
+  z-index: 0;
+}
+
+.anim {
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.39, 0.08, 0.93, 0.42);
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text > div {
+  max-width: 27em;
+}
+
+.text p {
+  background-image: linear-gradient(0deg, var(--secondaire), var(--secondaire));
+  background-repeat: no-repeat;
+  background-size: 3px 100%;
+  padding-left: var(--espace);
+  background-position: 0 0;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social li {
+  margin: 1.5em 0;
+  writing-mode: vertical-rl;
+  font-weight: 700;
+}
+
+/* ========= Header Bottom ========== */
+.header-bottom {
+  margin: var(--espace) 0 0 0;
+}
+
+.active {
+  color: var(--secondaire);
+  background-image: linear-gradient(0deg, var(--secondaire), var(--secondaire));
+}
+
+.controls span {
+  margin: 0 0.5em;
+}
+
+/* ============== CONTACT PAGE =============== */
+
+.contact-nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px 0 15px;
+}
+
+.contact-search {
+  text-align: center;
+  border: none;
+  outline: none;
+  width: 8em;
+  transition: 0.3s;
+  background: transparent;
+}
+
+.contact-search {
+  background-image: linear-gradient(0deg, #111, #111);
+  background-repeat: no-repeat;
+  background-size: 50% 2px;
+  padding-bottom: 10px;
+  background-position: 50% bottom;
+}
+
+.contact-search::placeholder {
+  color: var(--text-color);
+
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.contact-search:focus {
+  background-size: 120% 2px;
+}
+
+.contact-mobile-search {
+  display: none;
+}
+
+.contact-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 100px;
+  background-color: transparent;
+}
+
+.contact-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/img/vie.jpeg") no-repeat center;
+  background-size: cover;
+  z-index: -1;
+  filter: blur(50px);
+}
+
+.contact-card {
+  max-width: 850px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--primaire);
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contact-left {
+  border-radius: 10px 0 0 10px;
+  height: 100%;
+  background: url("/img/vie.jpeg") no-repeat center;
+  background-size: cover;
+}
+
+.contact-right {
+  padding: 25px 40px;
+}
+
+h2 {
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: var(--text-color);
+  font-family: var(--titre);
+  font-size: 30px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 80px;
+  border-radius: 2px;
+  background-color: #D4D8FA;
+}
+
+.contact-champ {
+  width: 100%;
+  padding: 2.5rem 1rem;
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0);
+  /* ! A CHANGER */
+  background-color: transparent;
+  font-family: var(--text);
+  font-size: var(--body-text-normal);
+  margin-bottom: 22px;
+  transition: 0.9s;
+}
+
+.contact-champ:hover {
+  background-color: #FFFCF2;
+}
+
+.contact-champ:focus {
+  /* !Voir si pas de plus jolies couleurs pour le formulaire */
+  background-color: #D4D8FA;
+  border: 10px solid #f9efcc;
+}
+
+.area {
+  min-height: 150px;
+  resize: none;
+}
+
+.contact-btn {
+  /* !Voir si pas de plus jolies couleurs pour le formulaire */
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-family: var(--body-text-normal);
+  background-color: #7c81b8;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: var(--primaire);
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background-color: #646abc;
+}
+
+/* =========== ACTUALITES ==========*/
+.actu-main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 0px 15px 15px;
+}
+.actu-nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px 0 15px;
+}
+
+.actu-social {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.actu-social li {
+  margin: 1.5em 0;
+  writing-mode: vertical-rl;
+  font-weight: 700;
+}
+
+.spotify-container{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+
+
+.spotify-container::before {
+  content: "";
+  position: absolute;
+  left: 70%;
+  bottom: 1;
+  transform: translateX(-50%) rotate(90deg);
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background-color: #D4D8FA;
+  z-index: -1;
+}
+/* =========== ANIMATIONS ========= */
+
+@keyframes slider1 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70%;
+  }
+}
+
+@keyframes slider2 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 12em;
+  }
+}
+
+@keyframes slider3 {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+/*  ========== MEDIAQUERIES ======= */
+
+@media screen and (max-width: 1000px) {
+  .menu-btn {
+    display: block;
+  }
+  nav .menu {
+    background: var(--primaire);
+    position: absolute;
+    left: 0;
+    top: 5em;
+    width: 100%;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s;
+    overflow: hidden;
+    z-index: 9;
+  }
+  nav .menu-open {
+    opacity: 1;
+    height: 85%;
+    overflow: visible;
+  }
+  nav .menu li {
+    margin: 1em 0;
+  }
+  form:not(.mobile-search) {
+    display: none;
+  }
+  .mobile-search {
+    display: block;
+    margin-top: 1.6em;
+    background: var(--primaire);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  header {
+    height: initial;
+  }
+  .header-body {
+    grid-template-columns: 1fr;
+  }
+  .header-body > div:not(.slider) {
+    margin: var(--espace) 0;
+  }
+  .slider {
+    margin: var(--espace) 0;
+  }
+  .pagination {
+    display: none;
+  }
+  .social {
+    flex-direction: row;
+  }
+  .social li {
+    margin: 0 1.5em;
+    writing-mode: initial;
+  }
+}
+
+@media screen and (max-height: 430px) {
+  header .menu-open {
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+  .contact-left {
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+  }
+}

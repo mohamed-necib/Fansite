@@ -1,0 +1,233 @@
+:root {
+  /* couleurs */
+  --text-color: #333234;
+  --white-skin: #fff7da;
+
+  /* typographie */
+  --body-text-small: 25px;
+  --body-text-normal: 10px;
+  --big-title: 450px;
+
+  --title-font: "Harmond-SemiBoldCondensed", sans-serif, cursive, monospace;
+  --body-font: "BagerichDemo", sans-serif, cursive, monospace;
+}
+
+/* Reset Paramètres par Defaut*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+  cursor: none;
+  color: var(--text-color);
+  font-family: var(--body-font);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Paramètres Généraux pour les différents éléments */
+
+a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--body-font);
+}
+
+h1 {
+  font-size: var(--big-title);
+  font-family: var(--title-font);
+  font-weight: 400;
+  line-height: 1;
+}
+
+span {
+  display: inline-block;
+}
+
+.masking {
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.secondary-btn {
+  border: 2px solid var(--text-color);
+  cursor: none;
+}
+
+.tertiary-btn {
+  border: none;
+  cursor: none;
+}
+
+/* Paramètres HEADER */
+
+header {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-color: var(--white-skin);
+  cursor: none;
+}
+
+/* Paramètres NAVBAR */
+nav {
+  width: 100vw;
+  height: 9%;
+  padding: 0px 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container a {
+  font-weight: 500;
+  font-size: 150%;
+  transform: translateY(-200px);
+  transition: 1s ease-in-out;
+}
+
+.logo-container a span {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 120%;
+}
+
+.menu-button-container button,
+.dark-mode-button-container button,
+.card-shop-button-container button {
+  transform: translateY(-200px);
+  transition: 1.4s ease-in-out;
+}
+
+.user-utilities {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: auto;
+}
+
+.card-shop-button-container {
+  margin: 0px 2rem;
+}
+
+.search-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  transition: 0.7s ease-in-out;
+}
+
+.search-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  transform: scale(0);
+  transition: 0.7s;
+}
+
+/* Paramètres HERO */
+
+.hero {
+  width: 100%;
+  height: 91%;
+  padding: 5%;
+  position: relative;
+}
+
+.hero-div {
+  height: auto;
+  width: 100%;
+  display: flex;
+  padding: 0px 10%;
+  font-size: 150%;
+}
+
+.up-hero-div {
+  justify-content: flex-start;
+}
+
+.up-hero-div a,
+.down-hero-div a {
+  transform: translateY(-200px);
+  transition: 1s ease-in-out;
+}
+
+.title-img-container {
+  margin-bottom: 40px;
+}
+
+.title-container h1 {
+  /* ! A définir pour responsive */
+  padding: 60px 0px 0px 60px;
+  transform: translateY(150%);
+  transition: 1.6s cubic-bezier(0.81, 0, 0, 0.9);
+}
+
+.down-hero-div {
+  justify-content: space-between;
+}
+
+.image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(650 / (3 / 2));
+  height: calc(780 / (3 / 2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform-origin: bottom;
+  transform: translate(-50%, -50%) scaleY(0);
+  transition: 1s cubic-bezier(0.22, -0.02, 0, 0.99), opacity 0s;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  transform-origin: -200% 0% 0% 0%;
+  transform: scale(1.5);
+  filter: brightness(50%);
+  transition: 1.5s cubic-bezier(0.22, -0.02, 0, 0.99), opacity 0s;
+}
+
+/* Paramètres Curseur Custom */
+
+#cursor {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 0.1rem solid darkorange;
+  background: transparent;
+  pointer-events: none;
+  z-index: 5;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0.3s ease-in-out;
+  transition-property: transform;
+  display: none;
+}
